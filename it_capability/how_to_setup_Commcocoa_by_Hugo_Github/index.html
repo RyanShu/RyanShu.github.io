@@ -1,0 +1,1180 @@
+﻿<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <title>使用Hugo/Github搭建Commcocoa网站 &middot; Commcocoa</title>
+    <meta name="generator" content="Hugo 0.18.1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="Ryan Shu">
+    
+      <meta name="description" content="">
+    
+    
+    <link rel="canonical" href="https://example.org/it_capability/how_to_setup_Commcocoa_by_Hugo_Github/"/>
+    <link rel="icon" href="https://example.org/favicon.ico">
+    <link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png"/>
+    <link rel="stylesheet" href="https://example.org/css/style.css">
+    <link rel="stylesheet" href="https://example.org/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://example.org/css/monokai.css">
+    <link rel="stylesheet" href="https://example.org/fancybox/jquery.fancybox.css">
+    
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <meta property="og:title" content="使用Hugo/Github搭建Commcocoa网站" />
+<meta property="og:description" content="事先准备
+
+安装Hugo
+
+在Windows上安装Hugo,直接在Github上下载hugo.exe，需注意修改环境变量，安装完成后查询hugo help若反馈如下则表明安装成功.
+
+	$ hugo help
+	hugo is the main command, used to build your Hugo site.
+
+	Hugo is a Fast and Flexible Static Site Generator
+	built with love by spf13 and friends in Go.
+
+	Complete documentation is available at http://gohugo.io/.
+
+
+安装Git(非必要)
+
+在Windows上安装Git,若产生Git Bash则安装成功.
+
+安装Notepad&#43;&#43;(非必要)
+
+在Windows上安装Notepad&#43;&#43;,用于编辑网页,VIM将在Linux环境下使用而NPP将在Windows下使用.
+
+注意：
+透过使用*Hugo new XXX.md*生成的markdown文件是ANSI编码，需要转换为UTF-8编码才能正确显示中文字符.
+
+新建网站
+
+按照Hugo官网Quick Start的instruction下新建网站.
+
+
+前往安装目录,新建Commcocoa:
+
+
+	$ hugo new site commcocoa
+	Congratulations! Your new Hugo site is created in E:\XX\Commcocoa                .
+
+	Just a few more steps and you&#39;re ready to go:
+
+	1. Download a theme into the same-named folder.
+	   Choose a theme from https://themes.gohugo.io/, or
+	   create your own with the &quot;hugo new theme &lt;THEMENAME&gt;&quot; command.
+	2. Perhaps you want to add some content. You can add single files
+	   with &quot;hugo new &lt;SECTIONNAME&gt;\&lt;FILENAME&gt;.&lt;FORMAT&gt;&quot;.
+	3. Start the built-in live server via &quot;hugo server&quot;.
+
+	Visit https://gohugo.io/ for quickstart guide and full documentation.
+
+
+
+查询Commcocoa下自动生成的文件内容：
+
+
+	$ ls -al
+	total 5
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 ./
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 ../
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 archetypes/
+	-rw-r--r-- 1 Ryan Shu 197121 82 Jan 17 14:42 config.toml
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 content/
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 data/
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 layouts/
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 static/
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 themes/
+
+
+
+下载主题，使用事先选定的主题Icarus
+如果没有主题则会出现build error. 下载方式可使用Git,如下：
+
+
+	$ cd themes
+	git clone https://github.com/digitalcraftsman/hugo-icarus-theme
+
+
+
+下载的主题会在theme文件夹下,则将其examplesSite内容拷贝并覆盖到Commcocoa目录下
+
+
+$ cp -av ~/commcocoa/themes/hugo-icarus-theme/exampleSite/* ~/commcocoa/
+
+
+使用Hugo build,需返回到commcocoa目录下
+
+
+	$ hugo server -t hugo-icarus-theme -D
+
+
+如果有其他主题，使用下面命令来切换不同的主题,比如切换到robust主题
+
+	$ hugo server --theme=hugo_theme_robust --buildDrafts
+
+
+
+build pass后会产生如下打印消息：
+
+
+	$ hugo server -t hugo-icarus-theme -D
+	Started building sites ...
+	Built site for language en:
+	0 draft content
+	0 future content
+	0 expired content
+	6 regular pages created
+	4 other pages created
+	0 non-page files copied
+	3 paginator pages created
+	0 tags created
+	1 categories created
+	total in 65 ms
+	Watching for changes in E:\Ryan_Shu\Commcocoa\commcocoa\{data,content,layouts,static,themes}
+	Serving pages from memory
+	Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+	Press Ctrl&#43;C to stop
+
+
+
+使用浏览器访问localhost:1313即可显示网站.
+
+
+配置开关
+
+
+使用Tags来增加标签
+
+
+	tags = []
+
+
+
+使用categories来增减目录
+
+
+	categories = []
+
+
+
+widgits
+
+
+	recent_articles = false
+    categories = true
+    tags = true
+    tag_cloud = true
+
+
+部署
+
+
+使用Hugo命令生成public:
+
+	Started building sites ...
+	Built site for language en:
+	0 draft content
+	0 future content
+	0 expired content
+	6 regular pages created
+	4 other pages created
+	0 non-page files copied
+	3 paginator pages created
+	0 tags created
+	1 categories created
+	total in 78 ms
+
+
+
+Tips
+
+
+目前标题中不能够出现“&#43;”,否则无法索引到，怀疑需要转义.
+使用Hugo new page.md 一定要注意编码格式,UTF-8否则容易出现中文字符无法显示.
+```的使用注意前后段落回车
+
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.org/it_capability/how_to_setup_Commcocoa_by_Hugo_Github/" />
+
+
+<meta property="og:updated_time" content="2017-01-17T16:34:17&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+    
+    
+<meta itemprop="name" content="使用Hugo/Github搭建Commcocoa网站">
+<meta itemprop="description" content="事先准备
+
+安装Hugo
+
+在Windows上安装Hugo,直接在Github上下载hugo.exe，需注意修改环境变量，安装完成后查询hugo help若反馈如下则表明安装成功.
+
+	$ hugo help
+	hugo is the main command, used to build your Hugo site.
+
+	Hugo is a Fast and Flexible Static Site Generator
+	built with love by spf13 and friends in Go.
+
+	Complete documentation is available at http://gohugo.io/.
+
+
+安装Git(非必要)
+
+在Windows上安装Git,若产生Git Bash则安装成功.
+
+安装Notepad&#43;&#43;(非必要)
+
+在Windows上安装Notepad&#43;&#43;,用于编辑网页,VIM将在Linux环境下使用而NPP将在Windows下使用.
+
+注意：
+透过使用*Hugo new XXX.md*生成的markdown文件是ANSI编码，需要转换为UTF-8编码才能正确显示中文字符.
+
+新建网站
+
+按照Hugo官网Quick Start的instruction下新建网站.
+
+
+前往安装目录,新建Commcocoa:
+
+
+	$ hugo new site commcocoa
+	Congratulations! Your new Hugo site is created in E:\XX\Commcocoa                .
+
+	Just a few more steps and you&#39;re ready to go:
+
+	1. Download a theme into the same-named folder.
+	   Choose a theme from https://themes.gohugo.io/, or
+	   create your own with the &quot;hugo new theme &lt;THEMENAME&gt;&quot; command.
+	2. Perhaps you want to add some content. You can add single files
+	   with &quot;hugo new &lt;SECTIONNAME&gt;\&lt;FILENAME&gt;.&lt;FORMAT&gt;&quot;.
+	3. Start the built-in live server via &quot;hugo server&quot;.
+
+	Visit https://gohugo.io/ for quickstart guide and full documentation.
+
+
+
+查询Commcocoa下自动生成的文件内容：
+
+
+	$ ls -al
+	total 5
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 ./
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 ../
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 archetypes/
+	-rw-r--r-- 1 Ryan Shu 197121 82 Jan 17 14:42 config.toml
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 content/
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 data/
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 layouts/
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 static/
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 themes/
+
+
+
+下载主题，使用事先选定的主题Icarus
+如果没有主题则会出现build error. 下载方式可使用Git,如下：
+
+
+	$ cd themes
+	git clone https://github.com/digitalcraftsman/hugo-icarus-theme
+
+
+
+下载的主题会在theme文件夹下,则将其examplesSite内容拷贝并覆盖到Commcocoa目录下
+
+
+$ cp -av ~/commcocoa/themes/hugo-icarus-theme/exampleSite/* ~/commcocoa/
+
+
+使用Hugo build,需返回到commcocoa目录下
+
+
+	$ hugo server -t hugo-icarus-theme -D
+
+
+如果有其他主题，使用下面命令来切换不同的主题,比如切换到robust主题
+
+	$ hugo server --theme=hugo_theme_robust --buildDrafts
+
+
+
+build pass后会产生如下打印消息：
+
+
+	$ hugo server -t hugo-icarus-theme -D
+	Started building sites ...
+	Built site for language en:
+	0 draft content
+	0 future content
+	0 expired content
+	6 regular pages created
+	4 other pages created
+	0 non-page files copied
+	3 paginator pages created
+	0 tags created
+	1 categories created
+	total in 65 ms
+	Watching for changes in E:\Ryan_Shu\Commcocoa\commcocoa\{data,content,layouts,static,themes}
+	Serving pages from memory
+	Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+	Press Ctrl&#43;C to stop
+
+
+
+使用浏览器访问localhost:1313即可显示网站.
+
+
+配置开关
+
+
+使用Tags来增加标签
+
+
+	tags = []
+
+
+
+使用categories来增减目录
+
+
+	categories = []
+
+
+
+widgits
+
+
+	recent_articles = false
+    categories = true
+    tags = true
+    tag_cloud = true
+
+
+部署
+
+
+使用Hugo命令生成public:
+
+	Started building sites ...
+	Built site for language en:
+	0 draft content
+	0 future content
+	0 expired content
+	6 regular pages created
+	4 other pages created
+	0 non-page files copied
+	3 paginator pages created
+	0 tags created
+	1 categories created
+	total in 78 ms
+
+
+
+Tips
+
+
+目前标题中不能够出现“&#43;”,否则无法索引到，怀疑需要转义.
+使用Hugo new page.md 一定要注意编码格式,UTF-8否则容易出现中文字符无法显示.
+```的使用注意前后段落回车
+
+
+">
+
+
+<meta itemprop="dateModified" content="2017-01-17T16:34:17&#43;08:00" />
+<meta itemprop="wordCount" content="414">
+
+
+
+<meta itemprop="keywords" content="tools,website,efficiency,markdown," />
+
+    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="使用Hugo/Github搭建Commcocoa网站"/>
+<meta name="twitter:description" content="事先准备
+
+安装Hugo
+
+在Windows上安装Hugo,直接在Github上下载hugo.exe，需注意修改环境变量，安装完成后查询hugo help若反馈如下则表明安装成功.
+
+	$ hugo help
+	hugo is the main command, used to build your Hugo site.
+
+	Hugo is a Fast and Flexible Static Site Generator
+	built with love by spf13 and friends in Go.
+
+	Complete documentation is available at http://gohugo.io/.
+
+
+安装Git(非必要)
+
+在Windows上安装Git,若产生Git Bash则安装成功.
+
+安装Notepad&#43;&#43;(非必要)
+
+在Windows上安装Notepad&#43;&#43;,用于编辑网页,VIM将在Linux环境下使用而NPP将在Windows下使用.
+
+注意：
+透过使用*Hugo new XXX.md*生成的markdown文件是ANSI编码，需要转换为UTF-8编码才能正确显示中文字符.
+
+新建网站
+
+按照Hugo官网Quick Start的instruction下新建网站.
+
+
+前往安装目录,新建Commcocoa:
+
+
+	$ hugo new site commcocoa
+	Congratulations! Your new Hugo site is created in E:\XX\Commcocoa                .
+
+	Just a few more steps and you&#39;re ready to go:
+
+	1. Download a theme into the same-named folder.
+	   Choose a theme from https://themes.gohugo.io/, or
+	   create your own with the &quot;hugo new theme &lt;THEMENAME&gt;&quot; command.
+	2. Perhaps you want to add some content. You can add single files
+	   with &quot;hugo new &lt;SECTIONNAME&gt;\&lt;FILENAME&gt;.&lt;FORMAT&gt;&quot;.
+	3. Start the built-in live server via &quot;hugo server&quot;.
+
+	Visit https://gohugo.io/ for quickstart guide and full documentation.
+
+
+
+查询Commcocoa下自动生成的文件内容：
+
+
+	$ ls -al
+	total 5
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 ./
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 ../
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 archetypes/
+	-rw-r--r-- 1 Ryan Shu 197121 82 Jan 17 14:42 config.toml
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 content/
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 data/
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 layouts/
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 static/
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 themes/
+
+
+
+下载主题，使用事先选定的主题Icarus
+如果没有主题则会出现build error. 下载方式可使用Git,如下：
+
+
+	$ cd themes
+	git clone https://github.com/digitalcraftsman/hugo-icarus-theme
+
+
+
+下载的主题会在theme文件夹下,则将其examplesSite内容拷贝并覆盖到Commcocoa目录下
+
+
+$ cp -av ~/commcocoa/themes/hugo-icarus-theme/exampleSite/* ~/commcocoa/
+
+
+使用Hugo build,需返回到commcocoa目录下
+
+
+	$ hugo server -t hugo-icarus-theme -D
+
+
+如果有其他主题，使用下面命令来切换不同的主题,比如切换到robust主题
+
+	$ hugo server --theme=hugo_theme_robust --buildDrafts
+
+
+
+build pass后会产生如下打印消息：
+
+
+	$ hugo server -t hugo-icarus-theme -D
+	Started building sites ...
+	Built site for language en:
+	0 draft content
+	0 future content
+	0 expired content
+	6 regular pages created
+	4 other pages created
+	0 non-page files copied
+	3 paginator pages created
+	0 tags created
+	1 categories created
+	total in 65 ms
+	Watching for changes in E:\Ryan_Shu\Commcocoa\commcocoa\{data,content,layouts,static,themes}
+	Serving pages from memory
+	Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+	Press Ctrl&#43;C to stop
+
+
+
+使用浏览器访问localhost:1313即可显示网站.
+
+
+配置开关
+
+
+使用Tags来增加标签
+
+
+	tags = []
+
+
+
+使用categories来增减目录
+
+
+	categories = []
+
+
+
+widgits
+
+
+	recent_articles = false
+    categories = true
+    tags = true
+    tag_cloud = true
+
+
+部署
+
+
+使用Hugo命令生成public:
+
+	Started building sites ...
+	Built site for language en:
+	0 draft content
+	0 future content
+	0 expired content
+	6 regular pages created
+	4 other pages created
+	0 non-page files copied
+	3 paginator pages created
+	0 tags created
+	1 categories created
+	total in 78 ms
+
+
+
+Tips
+
+
+目前标题中不能够出现“&#43;”,否则无法索引到，怀疑需要转义.
+使用Hugo new page.md 一定要注意编码格式,UTF-8否则容易出现中文字符无法显示.
+```的使用注意前后段落回车
+
+
+"/>
+
+
+
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+
+<div id="container">
+	<header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="https://example.org/" id="logo">
+          
+          <span class="site-title">Commcocoa</span>
+      </a>
+      <nav id="main-nav">
+          
+          
+          <a class="main-nav-link" href="https://example.org/3gppProtocols/">3GPP协议</a>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+          
+
+          
+          
+          
+          
+          <a class="main-nav-link" href="https://example.org/VoLTE/">VoLTE</a>
+          
+          
+          
+          <a class="main-nav-link" href="https://example.org/IT_Capability/">IT技能</a>
+          
+          
+          
+          <a class="main-nav-link" href="https://example.org/reading/">读书</a>
+          
+          
+          
+          <a class="main-nav-link" href="https://example.org/myLife/">生活</a>
+          
+          
+          
+          <a class="main-nav-link" href="https://example.org/aboutMe/">关于</a>
+          
+          
+      </nav>
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="https://example.org/css/images/avatar.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+              <input type="search" name="q" class="search-form-input" placeholder="检索">
+              <button type="submit" class="search-form-submit">
+              </button>
+              <input type="hidden" name="sitesearch" value="https://example.org/" />
+         </form>
+        </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tbody>
+          <tr>
+          
+          
+          <td><a class="main-nav-link" href="https://example.org/3gppProtocols/">3GPP协议</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+          
+
+          
+          
+          
+          
+          <td><a class="main-nav-link" href="https://example.org/VoLTE/">VoLTE</a></td>
+          
+          
+          
+          <td><a class="main-nav-link" href="https://example.org/IT_Capability/">IT技能</a></td>
+          
+          
+          
+          <td><a class="main-nav-link" href="https://example.org/reading/">读书</a></td>
+          
+          
+          
+          <td><a class="main-nav-link" href="https://example.org/myLife/">生活</a></td>
+          
+          
+          
+          <td><a class="main-nav-link" href="https://example.org/aboutMe/">关于</a></td>
+          
+          
+          <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+          <input type="search" name="q" class="search-form-input" placeholder="Search">
+          <input type="hidden" name="sitesearch" value="https://example.org/" />
+          </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</header>
+
+   	
+   	<div class="outer">
+   		
+
+	    
+<section id="main">
+
+    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
+        <div class="article-inner">
+            
+
+            <header class="article-header">
+    <a href="https://example.org/it_capability/how_to_setup_Commcocoa_by_Hugo_Github/">
+    <h1 class="article-title" itemprop="name">
+        使用Hugo/Github搭建Commcocoa网站
+    </h1>
+    </a>
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2017-01-17 16:34:17 &#43;0800 CST" itemprop="datePublished">2017-01-17</time>
+            &middot;
+            414
+            字
+            &middot;
+            2
+            分钟
+        </div>
+
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-folder"></i>
+                
+                
+                <a class="article-category-link" href="https://example.org/categories/website">Website</a>
+                
+                
+            </div>
+            
+        
+
+        
+            
+            
+        
+    </div>
+</header>
+
+            <div class="article-entry" itemprop="articleBody">
+                <h2 id="事先准备">事先准备</h2>
+
+<h3 id="安装hugo">安装Hugo</h3>
+
+<p><a href="http://www.gohugo.io/tutorials/installing-on-windows/">在Windows上安装Hugo</a>,直接在Github上下载hugo.exe，需注意修改<strong>环境变量</strong>，安装完成后查询hugo help若反馈如下则表明安装成功.</p>
+
+<pre><code>	$ hugo help
+	hugo is the main command, used to build your Hugo site.
+
+	Hugo is a Fast and Flexible Static Site Generator
+	built with love by spf13 and friends in Go.
+
+	Complete documentation is available at http://gohugo.io/.
+</code></pre>
+
+<h3 id="安装git-非必要">安装Git(非必要)</h3>
+
+<p><a href="https://git-for-windows.github.io/">在Windows上安装Git</a>,若产生Git Bash则安装成功.</p>
+
+<h3 id="安装notepad-非必要">安装Notepad++(非必要)</h3>
+
+<p><a href="https://notepad-plus-plus.org/">在Windows上安装Notepad++</a>,用于编辑网页,VIM将在Linux环境下使用而NPP将在Windows下使用.</p>
+
+<p><strong>注意：</strong>
+透过使用*Hugo new XXX.md*生成的markdown文件是<strong>ANSI</strong>编码，需要转换为<strong>UTF-8</strong>编码才能正确显示中文字符.</p>
+
+<h2 id="新建网站">新建网站</h2>
+
+<p>按照Hugo官网<a href="http://www.gohugo.io/overview/quickstart/">Quick Start</a>的instruction下新建网站.</p>
+
+<ul>
+<li>前往安装目录,新建Commcocoa:</li>
+</ul>
+
+<pre><code>	$ hugo new site commcocoa
+	Congratulations! Your new Hugo site is created in E:\XX\Commcocoa                .
+
+	Just a few more steps and you're ready to go:
+
+	1. Download a theme into the same-named folder.
+	   Choose a theme from https://themes.gohugo.io/, or
+	   create your own with the &quot;hugo new theme &lt;THEMENAME&gt;&quot; command.
+	2. Perhaps you want to add some content. You can add single files
+	   with &quot;hugo new &lt;SECTIONNAME&gt;\&lt;FILENAME&gt;.&lt;FORMAT&gt;&quot;.
+	3. Start the built-in live server via &quot;hugo server&quot;.
+
+	Visit https://gohugo.io/ for quickstart guide and full documentation.
+</code></pre>
+
+<ul>
+<li>查询Commcocoa下自动生成的文件内容：</li>
+</ul>
+
+<pre><code>	$ ls -al
+	total 5
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 ./
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 ../
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 archetypes/
+	-rw-r--r-- 1 Ryan Shu 197121 82 Jan 17 14:42 config.toml
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 content/
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 data/
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 layouts/
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 static/
+	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 themes/
+</code></pre>
+
+<ul>
+<li>下载主题，使用事先选定的主题<a href="http://themes.gohugo.io/hugo-icarus/">Icarus</a>
+如果没有主题则会出现build error. 下载方式可使用Git,如下：</li>
+</ul>
+
+<pre><code>	$ cd themes
+	git clone https://github.com/digitalcraftsman/hugo-icarus-theme
+</code></pre>
+
+<ul>
+<li>下载的主题会在theme文件夹下,则将其examplesSite内容拷贝并覆盖到Commcocoa目录下</li>
+</ul>
+
+<p><code>$ cp -av ~/commcocoa/themes/hugo-icarus-theme/exampleSite/* ~/commcocoa/</code></p>
+
+<ul>
+<li>使用Hugo build,需返回到commcocoa目录下</li>
+</ul>
+
+<pre><code>	$ hugo server -t hugo-icarus-theme -D
+</code></pre>
+
+<p>如果有其他主题，使用下面命令来切换不同的主题,比如切换到robust主题</p>
+
+<pre><code>	$ hugo server --theme=hugo_theme_robust --buildDrafts
+</code></pre>
+
+<ul>
+<li>build pass后会产生如下打印消息：</li>
+</ul>
+
+<pre><code>	$ hugo server -t hugo-icarus-theme -D
+	Started building sites ...
+	Built site for language en:
+	0 draft content
+	0 future content
+	0 expired content
+	6 regular pages created
+	4 other pages created
+	0 non-page files copied
+	3 paginator pages created
+	0 tags created
+	1 categories created
+	total in 65 ms
+	Watching for changes in E:\Ryan_Shu\Commcocoa\commcocoa\{data,content,layouts,static,themes}
+	Serving pages from memory
+	Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+	Press Ctrl+C to stop
+</code></pre>
+
+<ul>
+<li>使用浏览器访问<a href="http://localhost:1313/">localhost:1313</a>即可显示网站.</li>
+</ul>
+
+<h2 id="配置开关">配置开关</h2>
+
+<ul>
+<li>使用Tags来增加标签</li>
+</ul>
+
+<pre><code>	tags = []
+</code></pre>
+
+<ul>
+<li>使用categories来增减目录</li>
+</ul>
+
+<pre><code>	categories = []
+</code></pre>
+
+<ul>
+<li>widgits</li>
+</ul>
+
+<pre><code>	recent_articles = false
+    categories = true
+    tags = true
+    tag_cloud = true
+</code></pre>
+
+<h2 id="部署">部署</h2>
+
+<ul>
+<li>使用<code>Hugo</code>命令生成public:
+<code>
+	Started building sites ...
+	Built site for language en:
+	0 draft content
+	0 future content
+	0 expired content
+	6 regular pages created
+	4 other pages created
+	0 non-page files copied
+	3 paginator pages created
+	0 tags created
+	1 categories created
+	total in 78 ms
+</code></li>
+</ul>
+
+<h2 id="tips">Tips</h2>
+
+<ul>
+<li>目前标题中不能够出现“+”,否则无法索引到，怀疑需要转义.</li>
+<li>使用Hugo new page.md 一定要注意编码格式,UTF-8否则容易出现中文字符无法显示.</li>
+<li>```的使用注意前后段落回车</li>
+</ul>
+
+<p></p>
+            </div>
+            <footer class="article-footer">
+    <a data-url="https://example.org/it_capability/how_to_setup_Commcocoa_by_Hugo_Github/" data-id="76cd77fa0c7699d65e9b27b38b295c37" class="article-share-link">
+        <i class="fa fa-share"></i>
+        分享到
+    </a>
+    
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+        </div>
+
+        
+<nav id="article-nav">
+    
+
+    
+    <a href="https://example.org/it_capability/markdown_usage/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          下一篇
+      </strong>
+      <div class="article-nav-title">Markdown实践</div>
+    </a>
+    
+</nav>
+
+
+    </article>
+
+    
+</section>
+
+
+	    
+	    <aside id="sidebar">
+    
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        最近
+    </h3>
+    <div class="widget">
+        <ul id="recent-post">
+            
+        </ul>
+    </div>
+</div>
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">目录</h3>
+    <div class="widget">
+        <ul class="category-list">
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://example.org/categories/tools">
+                    tools
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://example.org/categories/website">
+                    website
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        标签
+    </h3>
+    <div class="widget">
+        <ul class="category-list">
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://example.org/tags/efficiency">
+                    efficiency
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://example.org/tags/markdown">
+                    markdown
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        Tag cloud
+    </h3>
+    <div class="widget tagcloud">
+        
+        
+        <a href="https://example.org/tags/efficiency" style="font-size: 12px;">efficiency</a>
+        
+        
+        <a href="https://example.org/tags/markdown" style="font-size: 12px;">markdown</a>
+        
+    </div>
+</div>
+
+
+
+
+
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+	    
+	</div>
+</div>
+
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017
+      Powered by <a href="//gohugo.io">Hugo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>.
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://example.org/fancybox/jquery.fancybox.pack.js"></script>
+<script src="https://example.org/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<!-- MathJax -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+</body>
+</html>

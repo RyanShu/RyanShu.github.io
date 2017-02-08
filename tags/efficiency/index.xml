@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Efficiency on Commcocoa</title>
+    <link>https://example.org/tags/efficiency/index.xml</link>
+    <description>Recent content in Efficiency on Commcocoa</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice).</copyright>
+    <atom:link href="https://example.org/tags/efficiency/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Markdown实践</title>
+      <link>https://example.org/it_capability/markdown_usage/</link>
+      <pubDate>Tue, 07 Feb 2017 15:44:03 +0800</pubDate>
+      
+      <guid>https://example.org/it_capability/markdown_usage/</guid>
+      <description>&lt;p&gt;在网上写内容的同学会经常遇到需要&lt;strong&gt;逐行或者逐字&lt;/strong&gt;地去调整格式的状况，右手不停地在键盘与鼠标之间来回切换，毫无行云流水的畅快之感。&lt;/p&gt;
+
+&lt;p&gt;现在使用&lt;strong&gt;Markdown&lt;/strong&gt;来书写，在敲击键盘的同时键入相关的格式设定并且生成简明的网页，让你的写作思路不停歇，让你的右手只用撸键盘.&lt;/p&gt;
+
+&lt;p&gt;Markdown作为轻量级的标记语言，语法简明操作简单且目前已经大量的客户端支持解析Markdown编写的文件，比如Gmail、简书、&lt;a href=&#34;http://note.youdao.com/?keyfrom=dict2.index&#34;&gt;有道云笔记&lt;/a&gt;、&lt;a href=&#34;http://www.wiz.cn/&#34;&gt;为知笔记&lt;/a&gt;、各种静态网页生成器等。&lt;/p&gt;
+
+&lt;p&gt;不仅如此,在Markdown基础语法基础上更多的客户端还扩展了使用，比如支持flowchart、数学公式、代码高亮等等.其中&lt;a href=&#34;https://maxiang.io/&#34;&gt;马克飞象&lt;/a&gt;、&lt;a href=&#34;https://www.zybuluo.com/mdeditor&#34;&gt;CMD Markdown&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Markdown基础语法参考如下内容：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://daringfireball.net/projects/markdown/syntax&#34;&gt;Markdown Syntax from BJohn Gruber&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://wowubuntu.com/markdown/#list&#34;&gt;Markdown语法说明&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;下文将展示常用的Markdown使用语法&lt;/p&gt;
+
+&lt;h2 id=&#34;标题&#34;&gt;标题&lt;/h2&gt;
+
+&lt;p&gt;在行首“#”+“空格”后书写标题,该行将自动转为标题, &amp;ldquo;#&amp;ldquo;数目对应相应的标题.&lt;/p&gt;
+
+&lt;p&gt;书写：
+&amp;gt; # 一级标题&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;## 二级标题&lt;/p&gt;
+
+&lt;p&gt;### 三级标题&lt;/p&gt;
+
+&lt;p&gt;#### 四级标题&lt;/p&gt;
+
+&lt;p&gt;##### 五级标题&lt;/p&gt;
+
+&lt;p&gt;###### 六级标题&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;效果:
+&amp;gt; # 一级标题&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;h2 id=&#34;二级标题&#34;&gt;二级标题&lt;/h2&gt;
+
+&lt;h3 id=&#34;三级标题&#34;&gt;三级标题&lt;/h3&gt;
+
+&lt;h4 id=&#34;四级标题&#34;&gt;四级标题&lt;/h4&gt;
+
+&lt;h5 id=&#34;五级标题&#34;&gt;五级标题&lt;/h5&gt;
+
+&lt;h6 id=&#34;六级标题&#34;&gt;六级标题&lt;/h6&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;字体&#34;&gt;字体&lt;/h2&gt;
+
+&lt;p&gt;在对应需要写该字体的特定文字上前后增加相应数量的&amp;rdquo;*&amp;rdquo;
+书写：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;*斜体*&lt;/p&gt;
+
+&lt;p&gt;*&lt;em&gt;加黑*&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;*&lt;strong&gt;斜体加黑*&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;效果：
+&amp;gt; &lt;em&gt;斜体&lt;/em&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;加黑&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;斜体加黑&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;段落&#34;&gt;段落&lt;/h2&gt;
+
+&lt;h3 id=&#34;分割线&#34;&gt;分割线&lt;/h3&gt;
+
+&lt;p&gt;空白行增加连续3个以上的“*”或者“-”然后回车即可&lt;/p&gt;
+
+&lt;p&gt;书写：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;***
+-&amp;ndash;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;效果：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;hr /&gt;
+
+&lt;hr /&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;引用&#34;&gt;引用&lt;/h3&gt;
+
+&lt;p&gt;段前增加“&amp;gt;”即可
+效果：
+&amp;gt; One apple one day, keep docotor away.&lt;/p&gt;
+
+&lt;h2 id=&#34;表格&#34;&gt;表格&lt;/h2&gt;
+
+&lt;p&gt;按如下方式书写表格，注意表格中行之间不可以有回车.&lt;/p&gt;
+
+&lt;p&gt;书写：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;列1 | 列2 | 列3&lt;/p&gt;
+
+&lt;p&gt;-|-|-&lt;/p&gt;
+
+&lt;p&gt;行1 | 内容 | 内容&lt;/p&gt;
+
+&lt;p&gt;行2 | 内容 | 内容&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;效果：
+列1 | 列2 | 列3
+-|-|-
+行1 | 内容 | 内容
+行2 | 内容 | 内容&lt;/p&gt;
+
+&lt;h2 id=&#34;有序序列&#34;&gt;有序序列&lt;/h2&gt;
+
+&lt;p&gt;在各序列项之前，增加&amp;rdquo;阿拉伯数字&amp;rdquo;+&amp;ldquo;.&amp;rdquo;+&amp;ldquo;空格&amp;rdquo;会自动生成有序序列.&lt;/p&gt;
+
+&lt;p&gt;书写:
+&amp;gt; \1. Apple&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;\2. Bananna&lt;/p&gt;
+
+&lt;p&gt;\3. Orange&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;效果：
+&amp;gt; 1. Apple
+&amp;gt; 2. Bananna
+&amp;gt; 3. Orange&lt;/p&gt;
+
+&lt;h2 id=&#34;无序序列&#34;&gt;无序序列&lt;/h2&gt;
+
+&lt;p&gt;在各序列项之前，增加“*/-/+”+&amp;ldquo;空格&amp;rdquo;,会自动生成武学序列.&lt;/p&gt;
+
+&lt;p&gt;书写：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;- Apple&lt;/p&gt;
+
+&lt;p&gt;- Bananna&lt;/p&gt;
+
+&lt;p&gt;- Orange&lt;/p&gt;
+
+&lt;p&gt;* Apple&lt;/p&gt;
+
+&lt;p&gt;* Bananna&lt;/p&gt;
+
+&lt;p&gt;* Orange&lt;/p&gt;
+
+&lt;p&gt;+ Apple&lt;/p&gt;
+
+&lt;p&gt;+ Bananna&lt;/p&gt;
+
+&lt;p&gt;+ Orange&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;效果：
+&amp;gt; - Apple
+&amp;gt; - Bananna
+&amp;gt; - Orange&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Apple&lt;/li&gt;
+&lt;li&gt;Bananna&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Orange&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Apple&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Bananna&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Orange&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;多级序列&#34;&gt;多级序列&lt;/h2&gt;
+
+&lt;p&gt;在二级序列项之前要比二级序列项多输入2个“空格”,在三级序列项之前要比二级序列项多输入2个“空格”&lt;/p&gt;
+
+&lt;p&gt;效果：
+&amp;gt; - Apple
+&amp;gt;   - Hongfushi
+&amp;gt;     - Yantai Hongfushi
+&amp;gt;     - Shanxi Hongfushi
+&amp;gt;  - Gala
+&amp;gt;     - Qixia Gala&lt;/p&gt;
+
+&lt;h2 id=&#34;链接插入&#34;&gt;链接插入&lt;/h2&gt;
+
+&lt;p&gt;使用“[”+文字+“]”+&amp;ldquo;(&amp;rdquo;+网址+“)”即可&lt;/p&gt;
+
+&lt;p&gt;效果:
+&amp;gt; Make the Web Fun Again&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Introducing &lt;a href=&#34;http://www.gohugo.io/&#34;&gt;Hugo&lt;/a&gt;, a new idea for making website creation simple again. Hugo works flexibly with many formats, and is ideal for blogs, docs, portfolios and much more. Hugo’s speed fosters creativity—it makes building a website fun again.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;图像插入&#34;&gt;图像插入&lt;/h2&gt;
+
+&lt;p&gt;使用&amp;rdquo;!&amp;ldquo;+“[”+文字+“]”+&amp;ldquo;(&amp;rdquo;+网址+“)”即可
+&amp;gt;&lt;img src=&#34;http://www.gohugo.io/img/hugo.png&#34; alt=&#34;Hugo Logo&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;后记&#34;&gt;后记&lt;/h2&gt;
+
+&lt;p&gt;Markdown仅使得用户快速输入文字并且快速排版,但如果要发布则需要其他客户端支持&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

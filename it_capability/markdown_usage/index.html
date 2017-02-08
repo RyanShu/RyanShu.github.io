@@ -1,0 +1,1365 @@
+﻿<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <title>Markdown实践 &middot; Commcocoa</title>
+    <meta name="generator" content="Hugo 0.18.1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="Ryan Shu">
+    
+      <meta name="description" content="">
+    
+    
+    <link rel="canonical" href="https://example.org/it_capability/markdown_usage/"/>
+    <link rel="icon" href="https://example.org/favicon.ico">
+    <link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png"/>
+    <link rel="stylesheet" href="https://example.org/css/style.css">
+    <link rel="stylesheet" href="https://example.org/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://example.org/css/monokai.css">
+    <link rel="stylesheet" href="https://example.org/fancybox/jquery.fancybox.css">
+    
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <meta property="og:title" content="Markdown实践" />
+<meta property="og:description" content="在网上写内容的同学会经常遇到需要逐行或者逐字地去调整格式的状况，右手不停地在键盘与鼠标之间来回切换，毫无行云流水的畅快之感。
+
+现在使用Markdown来书写，在敲击键盘的同时键入相关的格式设定并且生成简明的网页，让你的写作思路不停歇，让你的右手只用撸键盘.
+
+Markdown作为轻量级的标记语言，语法简明操作简单且目前已经大量的客户端支持解析Markdown编写的文件，比如Gmail、简书、有道云笔记、为知笔记、各种静态网页生成器等。
+
+不仅如此,在Markdown基础语法基础上更多的客户端还扩展了使用，比如支持flowchart、数学公式、代码高亮等等.其中马克飞象、CMD Markdown
+
+Markdown基础语法参考如下内容：
+
+Markdown Syntax from BJohn Gruber
+
+Markdown语法说明
+
+下文将展示常用的Markdown使用语法
+
+标题
+
+在行首“#”&#43;“空格”后书写标题,该行将自动转为标题, &ldquo;#&ldquo;数目对应相应的标题.
+
+书写：
+&gt; # 一级标题
+
+
+## 二级标题
+
+### 三级标题
+
+#### 四级标题
+
+##### 五级标题
+
+###### 六级标题
+
+
+效果:
+&gt; # 一级标题
+
+
+二级标题
+
+三级标题
+
+四级标题
+
+五级标题
+
+六级标题
+
+
+字体
+
+在对应需要写该字体的特定文字上前后增加相应数量的&rdquo;*&rdquo;
+书写：
+
+
+*斜体*
+
+*加黑*
+
+*斜体加黑*
+
+
+效果：
+&gt; 斜体
+
+
+加黑
+
+斜体加黑
+
+
+段落
+
+分割线
+
+空白行增加连续3个以上的“*”或者“-”然后回车即可
+
+书写：
+
+
+***
+-&ndash;
+
+
+效果：
+
+
+
+
+
+
+
+引用
+
+段前增加“&gt;”即可
+效果：
+&gt; One apple one day, keep docotor away.
+
+表格
+
+按如下方式书写表格，注意表格中行之间不可以有回车.
+
+书写：
+
+
+列1 | 列2 | 列3
+
+-|-|-
+
+行1 | 内容 | 内容
+
+行2 | 内容 | 内容
+
+
+效果：
+列1 | 列2 | 列3
+-|-|-
+行1 | 内容 | 内容
+行2 | 内容 | 内容
+
+有序序列
+
+在各序列项之前，增加&rdquo;阿拉伯数字&rdquo;&#43;&ldquo;.&rdquo;&#43;&ldquo;空格&rdquo;会自动生成有序序列.
+
+书写:
+&gt; \1. Apple
+
+
+\2. Bananna
+
+\3. Orange
+
+
+效果：
+&gt; 1. Apple
+&gt; 2. Bananna
+&gt; 3. Orange
+
+无序序列
+
+在各序列项之前，增加“*/-/&#43;”&#43;&ldquo;空格&rdquo;,会自动生成武学序列.
+
+书写：
+
+
+- Apple
+
+- Bananna
+
+- Orange
+
+* Apple
+
+* Bananna
+
+* Orange
+
+&#43; Apple
+
+&#43; Bananna
+
+&#43; Orange
+
+
+效果：
+&gt; - Apple
+&gt; - Bananna
+&gt; - Orange
+
+
+
+Apple
+Bananna
+
+Orange
+
+Apple
+
+Bananna
+
+Orange
+
+
+
+多级序列
+
+在二级序列项之前要比二级序列项多输入2个“空格”,在三级序列项之前要比二级序列项多输入2个“空格”
+
+效果：
+&gt; - Apple
+&gt;   - Hongfushi
+&gt;     - Yantai Hongfushi
+&gt;     - Shanxi Hongfushi
+&gt;  - Gala
+&gt;     - Qixia Gala
+
+链接插入
+
+使用“[”&#43;文字&#43;“]”&#43;&ldquo;(&rdquo;&#43;网址&#43;“)”即可
+
+效果:
+&gt; Make the Web Fun Again
+
+
+Introducing Hugo, a new idea for making website creation simple again. Hugo works flexibly with many formats, and is ideal for blogs, docs, portfolios and much more. Hugo’s speed fosters creativity—it makes building a website fun again.
+
+
+图像插入
+
+使用&rdquo;!&ldquo;&#43;“[”&#43;文字&#43;“]”&#43;&ldquo;(&rdquo;&#43;网址&#43;“)”即可
+&gt;
+
+后记
+
+Markdown仅使得用户快速输入文字并且快速排版,但如果要发布则需要其他客户端支持
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.org/it_capability/markdown_usage/" />
+
+
+<meta property="og:updated_time" content="2017-02-07T15:44:03&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+    
+    
+<meta itemprop="name" content="Markdown实践">
+<meta itemprop="description" content="在网上写内容的同学会经常遇到需要逐行或者逐字地去调整格式的状况，右手不停地在键盘与鼠标之间来回切换，毫无行云流水的畅快之感。
+
+现在使用Markdown来书写，在敲击键盘的同时键入相关的格式设定并且生成简明的网页，让你的写作思路不停歇，让你的右手只用撸键盘.
+
+Markdown作为轻量级的标记语言，语法简明操作简单且目前已经大量的客户端支持解析Markdown编写的文件，比如Gmail、简书、有道云笔记、为知笔记、各种静态网页生成器等。
+
+不仅如此,在Markdown基础语法基础上更多的客户端还扩展了使用，比如支持flowchart、数学公式、代码高亮等等.其中马克飞象、CMD Markdown
+
+Markdown基础语法参考如下内容：
+
+Markdown Syntax from BJohn Gruber
+
+Markdown语法说明
+
+下文将展示常用的Markdown使用语法
+
+标题
+
+在行首“#”&#43;“空格”后书写标题,该行将自动转为标题, &ldquo;#&ldquo;数目对应相应的标题.
+
+书写：
+&gt; # 一级标题
+
+
+## 二级标题
+
+### 三级标题
+
+#### 四级标题
+
+##### 五级标题
+
+###### 六级标题
+
+
+效果:
+&gt; # 一级标题
+
+
+二级标题
+
+三级标题
+
+四级标题
+
+五级标题
+
+六级标题
+
+
+字体
+
+在对应需要写该字体的特定文字上前后增加相应数量的&rdquo;*&rdquo;
+书写：
+
+
+*斜体*
+
+*加黑*
+
+*斜体加黑*
+
+
+效果：
+&gt; 斜体
+
+
+加黑
+
+斜体加黑
+
+
+段落
+
+分割线
+
+空白行增加连续3个以上的“*”或者“-”然后回车即可
+
+书写：
+
+
+***
+-&ndash;
+
+
+效果：
+
+
+
+
+
+
+
+引用
+
+段前增加“&gt;”即可
+效果：
+&gt; One apple one day, keep docotor away.
+
+表格
+
+按如下方式书写表格，注意表格中行之间不可以有回车.
+
+书写：
+
+
+列1 | 列2 | 列3
+
+-|-|-
+
+行1 | 内容 | 内容
+
+行2 | 内容 | 内容
+
+
+效果：
+列1 | 列2 | 列3
+-|-|-
+行1 | 内容 | 内容
+行2 | 内容 | 内容
+
+有序序列
+
+在各序列项之前，增加&rdquo;阿拉伯数字&rdquo;&#43;&ldquo;.&rdquo;&#43;&ldquo;空格&rdquo;会自动生成有序序列.
+
+书写:
+&gt; \1. Apple
+
+
+\2. Bananna
+
+\3. Orange
+
+
+效果：
+&gt; 1. Apple
+&gt; 2. Bananna
+&gt; 3. Orange
+
+无序序列
+
+在各序列项之前，增加“*/-/&#43;”&#43;&ldquo;空格&rdquo;,会自动生成武学序列.
+
+书写：
+
+
+- Apple
+
+- Bananna
+
+- Orange
+
+* Apple
+
+* Bananna
+
+* Orange
+
+&#43; Apple
+
+&#43; Bananna
+
+&#43; Orange
+
+
+效果：
+&gt; - Apple
+&gt; - Bananna
+&gt; - Orange
+
+
+
+Apple
+Bananna
+
+Orange
+
+Apple
+
+Bananna
+
+Orange
+
+
+
+多级序列
+
+在二级序列项之前要比二级序列项多输入2个“空格”,在三级序列项之前要比二级序列项多输入2个“空格”
+
+效果：
+&gt; - Apple
+&gt;   - Hongfushi
+&gt;     - Yantai Hongfushi
+&gt;     - Shanxi Hongfushi
+&gt;  - Gala
+&gt;     - Qixia Gala
+
+链接插入
+
+使用“[”&#43;文字&#43;“]”&#43;&ldquo;(&rdquo;&#43;网址&#43;“)”即可
+
+效果:
+&gt; Make the Web Fun Again
+
+
+Introducing Hugo, a new idea for making website creation simple again. Hugo works flexibly with many formats, and is ideal for blogs, docs, portfolios and much more. Hugo’s speed fosters creativity—it makes building a website fun again.
+
+
+图像插入
+
+使用&rdquo;!&ldquo;&#43;“[”&#43;文字&#43;“]”&#43;&ldquo;(&rdquo;&#43;网址&#43;“)”即可
+&gt;
+
+后记
+
+Markdown仅使得用户快速输入文字并且快速排版,但如果要发布则需要其他客户端支持
+
+">
+
+
+<meta itemprop="dateModified" content="2017-02-07T15:44:03&#43;08:00" />
+<meta itemprop="wordCount" content="235">
+
+
+
+<meta itemprop="keywords" content="tools,website,efficiency,markdown," />
+
+    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="Markdown实践"/>
+<meta name="twitter:description" content="在网上写内容的同学会经常遇到需要逐行或者逐字地去调整格式的状况，右手不停地在键盘与鼠标之间来回切换，毫无行云流水的畅快之感。
+
+现在使用Markdown来书写，在敲击键盘的同时键入相关的格式设定并且生成简明的网页，让你的写作思路不停歇，让你的右手只用撸键盘.
+
+Markdown作为轻量级的标记语言，语法简明操作简单且目前已经大量的客户端支持解析Markdown编写的文件，比如Gmail、简书、有道云笔记、为知笔记、各种静态网页生成器等。
+
+不仅如此,在Markdown基础语法基础上更多的客户端还扩展了使用，比如支持flowchart、数学公式、代码高亮等等.其中马克飞象、CMD Markdown
+
+Markdown基础语法参考如下内容：
+
+Markdown Syntax from BJohn Gruber
+
+Markdown语法说明
+
+下文将展示常用的Markdown使用语法
+
+标题
+
+在行首“#”&#43;“空格”后书写标题,该行将自动转为标题, &ldquo;#&ldquo;数目对应相应的标题.
+
+书写：
+&gt; # 一级标题
+
+
+## 二级标题
+
+### 三级标题
+
+#### 四级标题
+
+##### 五级标题
+
+###### 六级标题
+
+
+效果:
+&gt; # 一级标题
+
+
+二级标题
+
+三级标题
+
+四级标题
+
+五级标题
+
+六级标题
+
+
+字体
+
+在对应需要写该字体的特定文字上前后增加相应数量的&rdquo;*&rdquo;
+书写：
+
+
+*斜体*
+
+*加黑*
+
+*斜体加黑*
+
+
+效果：
+&gt; 斜体
+
+
+加黑
+
+斜体加黑
+
+
+段落
+
+分割线
+
+空白行增加连续3个以上的“*”或者“-”然后回车即可
+
+书写：
+
+
+***
+-&ndash;
+
+
+效果：
+
+
+
+
+
+
+
+引用
+
+段前增加“&gt;”即可
+效果：
+&gt; One apple one day, keep docotor away.
+
+表格
+
+按如下方式书写表格，注意表格中行之间不可以有回车.
+
+书写：
+
+
+列1 | 列2 | 列3
+
+-|-|-
+
+行1 | 内容 | 内容
+
+行2 | 内容 | 内容
+
+
+效果：
+列1 | 列2 | 列3
+-|-|-
+行1 | 内容 | 内容
+行2 | 内容 | 内容
+
+有序序列
+
+在各序列项之前，增加&rdquo;阿拉伯数字&rdquo;&#43;&ldquo;.&rdquo;&#43;&ldquo;空格&rdquo;会自动生成有序序列.
+
+书写:
+&gt; \1. Apple
+
+
+\2. Bananna
+
+\3. Orange
+
+
+效果：
+&gt; 1. Apple
+&gt; 2. Bananna
+&gt; 3. Orange
+
+无序序列
+
+在各序列项之前，增加“*/-/&#43;”&#43;&ldquo;空格&rdquo;,会自动生成武学序列.
+
+书写：
+
+
+- Apple
+
+- Bananna
+
+- Orange
+
+* Apple
+
+* Bananna
+
+* Orange
+
+&#43; Apple
+
+&#43; Bananna
+
+&#43; Orange
+
+
+效果：
+&gt; - Apple
+&gt; - Bananna
+&gt; - Orange
+
+
+
+Apple
+Bananna
+
+Orange
+
+Apple
+
+Bananna
+
+Orange
+
+
+
+多级序列
+
+在二级序列项之前要比二级序列项多输入2个“空格”,在三级序列项之前要比二级序列项多输入2个“空格”
+
+效果：
+&gt; - Apple
+&gt;   - Hongfushi
+&gt;     - Yantai Hongfushi
+&gt;     - Shanxi Hongfushi
+&gt;  - Gala
+&gt;     - Qixia Gala
+
+链接插入
+
+使用“[”&#43;文字&#43;“]”&#43;&ldquo;(&rdquo;&#43;网址&#43;“)”即可
+
+效果:
+&gt; Make the Web Fun Again
+
+
+Introducing Hugo, a new idea for making website creation simple again. Hugo works flexibly with many formats, and is ideal for blogs, docs, portfolios and much more. Hugo’s speed fosters creativity—it makes building a website fun again.
+
+
+图像插入
+
+使用&rdquo;!&ldquo;&#43;“[”&#43;文字&#43;“]”&#43;&ldquo;(&rdquo;&#43;网址&#43;“)”即可
+&gt;
+
+后记
+
+Markdown仅使得用户快速输入文字并且快速排版,但如果要发布则需要其他客户端支持
+
+"/>
+
+
+
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+
+<div id="container">
+	<header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="https://example.org/" id="logo">
+          
+          <span class="site-title">Commcocoa</span>
+      </a>
+      <nav id="main-nav">
+          
+          
+          <a class="main-nav-link" href="https://example.org/3gppProtocols/">3GPP协议</a>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+          
+
+          
+          
+          
+          
+          <a class="main-nav-link" href="https://example.org/VoLTE/">VoLTE</a>
+          
+          
+          
+          <a class="main-nav-link" href="https://example.org/IT_Capability/">IT技能</a>
+          
+          
+          
+          <a class="main-nav-link" href="https://example.org/reading/">读书</a>
+          
+          
+          
+          <a class="main-nav-link" href="https://example.org/myLife/">生活</a>
+          
+          
+          
+          <a class="main-nav-link" href="https://example.org/aboutMe/">关于</a>
+          
+          
+      </nav>
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="https://example.org/css/images/avatar.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+              <input type="search" name="q" class="search-form-input" placeholder="检索">
+              <button type="submit" class="search-form-submit">
+              </button>
+              <input type="hidden" name="sitesearch" value="https://example.org/" />
+         </form>
+        </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tbody>
+          <tr>
+          
+          
+          <td><a class="main-nav-link" href="https://example.org/3gppProtocols/">3GPP协议</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+          
+
+          
+          
+          
+          
+          <td><a class="main-nav-link" href="https://example.org/VoLTE/">VoLTE</a></td>
+          
+          
+          
+          <td><a class="main-nav-link" href="https://example.org/IT_Capability/">IT技能</a></td>
+          
+          
+          
+          <td><a class="main-nav-link" href="https://example.org/reading/">读书</a></td>
+          
+          
+          
+          <td><a class="main-nav-link" href="https://example.org/myLife/">生活</a></td>
+          
+          
+          
+          <td><a class="main-nav-link" href="https://example.org/aboutMe/">关于</a></td>
+          
+          
+          <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+          <input type="search" name="q" class="search-form-input" placeholder="Search">
+          <input type="hidden" name="sitesearch" value="https://example.org/" />
+          </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</header>
+
+   	
+   	<div class="outer">
+   		
+
+	    
+<section id="main">
+
+    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
+        <div class="article-inner">
+            
+
+            <header class="article-header">
+    <a href="https://example.org/it_capability/markdown_usage/">
+    <h1 class="article-title" itemprop="name">
+        Markdown实践
+    </h1>
+    </a>
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2017-02-07 15:44:03 &#43;0800 CST" itemprop="datePublished">2017-02-07</time>
+            &middot;
+            235
+            字
+            &middot;
+            2
+            分钟
+        </div>
+
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-folder"></i>
+                
+                
+                <a class="article-category-link" href="https://example.org/categories/tools">Tools</a>
+                
+                
+            </div>
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                
+                <a class="article-category-link" href="https://example.org/tags/markdown">Markdown</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://example.org/tags/efficiency">Efficiency</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+            <div class="article-entry" itemprop="articleBody">
+                <p>在网上写内容的同学会经常遇到需要<strong>逐行或者逐字</strong>地去调整格式的状况，右手不停地在键盘与鼠标之间来回切换，毫无行云流水的畅快之感。</p>
+
+<p>现在使用<strong>Markdown</strong>来书写，在敲击键盘的同时键入相关的格式设定并且生成简明的网页，让你的写作思路不停歇，让你的右手只用撸键盘.</p>
+
+<p>Markdown作为轻量级的标记语言，语法简明操作简单且目前已经大量的客户端支持解析Markdown编写的文件，比如Gmail、简书、<a href="http://note.youdao.com/?keyfrom=dict2.index">有道云笔记</a>、<a href="http://www.wiz.cn/">为知笔记</a>、各种静态网页生成器等。</p>
+
+<p>不仅如此,在Markdown基础语法基础上更多的客户端还扩展了使用，比如支持flowchart、数学公式、代码高亮等等.其中<a href="https://maxiang.io/">马克飞象</a>、<a href="https://www.zybuluo.com/mdeditor">CMD Markdown</a></p>
+
+<p>Markdown基础语法参考如下内容：</p>
+
+<p><a href="http://daringfireball.net/projects/markdown/syntax">Markdown Syntax from BJohn Gruber</a></p>
+
+<p><a href="http://wowubuntu.com/markdown/#list">Markdown语法说明</a></p>
+
+<p>下文将展示常用的Markdown使用语法</p>
+
+<h2 id="标题">标题</h2>
+
+<p>在行首“#”+“空格”后书写标题,该行将自动转为标题, &ldquo;#&ldquo;数目对应相应的标题.</p>
+
+<p>书写：
+&gt; # 一级标题</p>
+
+<blockquote>
+<p>## 二级标题</p>
+
+<p>### 三级标题</p>
+
+<p>#### 四级标题</p>
+
+<p>##### 五级标题</p>
+
+<p>###### 六级标题</p>
+</blockquote>
+
+<p>效果:
+&gt; # 一级标题</p>
+
+<blockquote>
+<h2 id="二级标题">二级标题</h2>
+
+<h3 id="三级标题">三级标题</h3>
+
+<h4 id="四级标题">四级标题</h4>
+
+<h5 id="五级标题">五级标题</h5>
+
+<h6 id="六级标题">六级标题</h6>
+</blockquote>
+
+<h2 id="字体">字体</h2>
+
+<p>在对应需要写该字体的特定文字上前后增加相应数量的&rdquo;*&rdquo;
+书写：</p>
+
+<blockquote>
+<p>*斜体*</p>
+
+<p>*<em>加黑*</em></p>
+
+<p>*<strong>斜体加黑*</strong></p>
+</blockquote>
+
+<p>效果：
+&gt; <em>斜体</em></p>
+
+<blockquote>
+<p><strong>加黑</strong></p>
+
+<p><strong><em>斜体加黑</em></strong></p>
+</blockquote>
+
+<h2 id="段落">段落</h2>
+
+<h3 id="分割线">分割线</h3>
+
+<p>空白行增加连续3个以上的“*”或者“-”然后回车即可</p>
+
+<p>书写：</p>
+
+<blockquote>
+<p>***
+-&ndash;</p>
+</blockquote>
+
+<p>效果：</p>
+
+<blockquote>
+<hr />
+
+<hr />
+</blockquote>
+
+<h3 id="引用">引用</h3>
+
+<p>段前增加“&gt;”即可
+效果：
+&gt; One apple one day, keep docotor away.</p>
+
+<h2 id="表格">表格</h2>
+
+<p>按如下方式书写表格，注意表格中行之间不可以有回车.</p>
+
+<p>书写：</p>
+
+<blockquote>
+<p>列1 | 列2 | 列3</p>
+
+<p>-|-|-</p>
+
+<p>行1 | 内容 | 内容</p>
+
+<p>行2 | 内容 | 内容</p>
+</blockquote>
+
+<p>效果：
+列1 | 列2 | 列3
+-|-|-
+行1 | 内容 | 内容
+行2 | 内容 | 内容</p>
+
+<h2 id="有序序列">有序序列</h2>
+
+<p>在各序列项之前，增加&rdquo;阿拉伯数字&rdquo;+&ldquo;.&rdquo;+&ldquo;空格&rdquo;会自动生成有序序列.</p>
+
+<p>书写:
+&gt; \1. Apple</p>
+
+<blockquote>
+<p>\2. Bananna</p>
+
+<p>\3. Orange</p>
+</blockquote>
+
+<p>效果：
+&gt; 1. Apple
+&gt; 2. Bananna
+&gt; 3. Orange</p>
+
+<h2 id="无序序列">无序序列</h2>
+
+<p>在各序列项之前，增加“*/-/+”+&ldquo;空格&rdquo;,会自动生成武学序列.</p>
+
+<p>书写：</p>
+
+<blockquote>
+<p>- Apple</p>
+
+<p>- Bananna</p>
+
+<p>- Orange</p>
+
+<p>* Apple</p>
+
+<p>* Bananna</p>
+
+<p>* Orange</p>
+
+<p>+ Apple</p>
+
+<p>+ Bananna</p>
+
+<p>+ Orange</p>
+</blockquote>
+
+<p>效果：
+&gt; - Apple
+&gt; - Bananna
+&gt; - Orange</p>
+
+<blockquote>
+<ul>
+<li>Apple</li>
+<li>Bananna</li>
+
+<li><p>Orange</p></li>
+
+<li><p>Apple</p></li>
+
+<li><p>Bananna</p></li>
+
+<li><p>Orange</p></li>
+</ul>
+</blockquote>
+
+<h2 id="多级序列">多级序列</h2>
+
+<p>在二级序列项之前要比二级序列项多输入2个“空格”,在三级序列项之前要比二级序列项多输入2个“空格”</p>
+
+<p>效果：
+&gt; - Apple
+&gt;   - Hongfushi
+&gt;     - Yantai Hongfushi
+&gt;     - Shanxi Hongfushi
+&gt;  - Gala
+&gt;     - Qixia Gala</p>
+
+<h2 id="链接插入">链接插入</h2>
+
+<p>使用“[”+文字+“]”+&ldquo;(&rdquo;+网址+“)”即可</p>
+
+<p>效果:
+&gt; Make the Web Fun Again</p>
+
+<blockquote>
+<p>Introducing <a href="http://www.gohugo.io/">Hugo</a>, a new idea for making website creation simple again. Hugo works flexibly with many formats, and is ideal for blogs, docs, portfolios and much more. Hugo’s speed fosters creativity—it makes building a website fun again.</p>
+</blockquote>
+
+<h2 id="图像插入">图像插入</h2>
+
+<p>使用&rdquo;!&ldquo;+“[”+文字+“]”+&ldquo;(&rdquo;+网址+“)”即可
+&gt;<img src="http://www.gohugo.io/img/hugo.png" alt="Hugo Logo" /></p>
+
+<h2 id="后记">后记</h2>
+
+<p>Markdown仅使得用户快速输入文字并且快速排版,但如果要发布则需要其他客户端支持</p>
+
+<p></p>
+            </div>
+            <footer class="article-footer">
+    <a data-url="https://example.org/it_capability/markdown_usage/" data-id="a2005cc47a706508c6c90650b58b3a33" class="article-share-link">
+        <i class="fa fa-share"></i>
+        分享到
+    </a>
+    
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+        </div>
+
+        
+<nav id="article-nav">
+    
+    <a href="https://example.org/it_capability/how_to_setup_Commcocoa_by_Hugo_Github/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          上一篇
+      </strong>
+      <div class="article-nav-title">使用Hugo/Github搭建Commcocoa网站</div>
+    </a>
+    
+
+    
+</nav>
+
+
+    </article>
+
+    
+</section>
+
+
+	    
+	    <aside id="sidebar">
+    
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        最近
+    </h3>
+    <div class="widget">
+        <ul id="recent-post">
+            
+        </ul>
+    </div>
+</div>
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">目录</h3>
+    <div class="widget">
+        <ul class="category-list">
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://example.org/categories/tools">
+                    tools
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://example.org/categories/website">
+                    website
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        标签
+    </h3>
+    <div class="widget">
+        <ul class="category-list">
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://example.org/tags/efficiency">
+                    efficiency
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://example.org/tags/markdown">
+                    markdown
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        Tag cloud
+    </h3>
+    <div class="widget tagcloud">
+        
+        
+        <a href="https://example.org/tags/efficiency" style="font-size: 12px;">efficiency</a>
+        
+        
+        <a href="https://example.org/tags/markdown" style="font-size: 12px;">markdown</a>
+        
+    </div>
+</div>
+
+
+
+
+
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+	    
+	</div>
+</div>
+
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017
+      Powered by <a href="//gohugo.io">Hugo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>.
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://example.org/fancybox/jquery.fancybox.pack.js"></script>
+<script src="https://example.org/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<!-- MathJax -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+</body>
+</html>

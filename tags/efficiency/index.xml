@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Efficiency on Commcocoa</title>
-    <link>https://example.org/tags/efficiency/index.xml</link>
+    <link>https://ryanshu.github.io/tags/efficiency/index.xml</link>
     <description>Recent content in Efficiency on Commcocoa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice).</copyright>
-    <atom:link href="https://example.org/tags/efficiency/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ryanshu.github.io/tags/efficiency/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Markdown实践</title>
-      <link>https://example.org/it_capability/markdown_usage/</link>
+      <link>https://ryanshu.github.io/it_capability/markdown_usage/</link>
       <pubDate>Tue, 07 Feb 2017 15:44:03 +0800</pubDate>
       
-      <guid>https://example.org/it_capability/markdown_usage/</guid>
+      <guid>https://ryanshu.github.io/it_capability/markdown_usage/</guid>
       <description>&lt;p&gt;在网上写内容的同学会经常遇到需要&lt;strong&gt;逐行或者逐字&lt;/strong&gt;地去调整格式的状况，右手不停地在键盘与鼠标之间来回切换，毫无行云流水的畅快之感。&lt;/p&gt;
 
 &lt;p&gt;现在使用&lt;strong&gt;Markdown&lt;/strong&gt;来书写，在敲击键盘的同时键入相关的格式设定并且生成简明的网页，让你的写作思路不停歇，让你的右手只用撸键盘.&lt;/p&gt;

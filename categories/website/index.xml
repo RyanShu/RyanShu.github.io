@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Website on Commcocoa</title>
-    <link>https://example.org/categories/website/index.xml</link>
+    <link>https://ryanshu.github.io/categories/website/index.xml</link>
     <description>Recent content in Website on Commcocoa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice).</copyright>
-    <atom:link href="https://example.org/categories/website/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ryanshu.github.io/categories/website/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>使用Hugo/Github搭建Commcocoa网站</title>
-      <link>https://example.org/it_capability/how_to_setup_Commcocoa_by_Hugo_Github/</link>
+      <link>https://ryanshu.github.io/it_capability/how_to_setup_Commcocoa_by_Hugo_Github/</link>
       <pubDate>Tue, 17 Jan 2017 16:34:17 +0800</pubDate>
       
-      <guid>https://example.org/it_capability/how_to_setup_Commcocoa_by_Hugo_Github/</guid>
+      <guid>https://ryanshu.github.io/it_capability/how_to_setup_Commcocoa_by_Hugo_Github/</guid>
       <description>&lt;h2 id=&#34;事先准备&#34;&gt;事先准备&lt;/h2&gt;
 
 &lt;h3 id=&#34;安装hugo&#34;&gt;安装Hugo&lt;/h3&gt;
@@ -194,10 +194,10 @@
     
     <item>
       <title>Go is for lovers</title>
-      <link>https://example.org/3gppprotocols/go-is-for-lovers/</link>
+      <link>https://ryanshu.github.io/3gppprotocols/go-is-for-lovers/</link>
       <pubDate>Thu, 17 Sep 2015 13:47:08 +0200</pubDate>
       
-      <guid>https://example.org/3gppprotocols/go-is-for-lovers/</guid>
+      <guid>https://ryanshu.github.io/3gppprotocols/go-is-for-lovers/</guid>
       <description>
 
 &lt;p&gt;Hugo uses the excellent &lt;a href=&#34;http://golang.org/&amp;gt;&#34;&gt;go&lt;/a&gt; &lt;a href=&#34;http://golang.org/pkg/html/template/&amp;gt;&#34;&gt;html/template&lt;/a&gt; library for
@@ -256,7 +256,7 @@ functions.&lt;/p&gt;
 &lt;p&gt;Each go template has a struct (object) made available to it. In hugo each
 template is passed either a page or a node struct depending on which type of
 page you are rendering. More details are available on the
-&lt;a href=&#34;https://example.org/layout/variables&#34;&gt;variables&lt;/a&gt; page.&lt;/p&gt;
+&lt;a href=&#34;https://ryanshu.github.io/layout/variables&#34;&gt;variables&lt;/a&gt; page.&lt;/p&gt;
 
 &lt;p&gt;A variable is accessed by referencing the variable name.&lt;/p&gt;
 
@@ -273,7 +273,7 @@ page you are rendering. More details are available on the
 
 &lt;p&gt;Go template ship with a few functions which provide basic functionality. The go
 template system also provides a mechanism for applications to extend the
-available functions with their own. &lt;a href=&#34;https://example.org/layout/functions&#34;&gt;Hugo template
+available functions with their own. &lt;a href=&#34;https://ryanshu.github.io/layout/functions&#34;&gt;Hugo template
 functions&lt;/a&gt; provide some additional functionality we believe
 are useful for building websites. Functions are called by using their name
 followed by the required parameters separated by spaces. Template
@@ -461,7 +461,7 @@ you want to inside of your templates.&lt;/p&gt;
 &lt;h2 id=&#34;using-content-page-parameters&#34;&gt;Using Content (page) Parameters&lt;/h2&gt;
 
 &lt;p&gt;In each piece of content you can provide variables to be used by the
-templates. This happens in the &lt;a href=&#34;https://example.org/content/front-matter&#34;&gt;front matter&lt;/a&gt;.&lt;/p&gt;
+templates. This happens in the &lt;a href=&#34;https://ryanshu.github.io/content/front-matter&#34;&gt;front matter&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;An example of this is used in this documentation site. Most of the pages
 benefit from having the table of contents provided. Sometimes the TOC just

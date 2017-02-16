@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>IT_Capabilities on Commcocoa</title>
+    <title>It_capabilities on Commcocoa</title>
     <link>https://ryanshu.github.io/it_capability/index.xml</link>
-    <description>Recent content in IT_Capabilities on Commcocoa</description>
+    <description>Recent content in It_capabilities on Commcocoa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice).</copyright>
@@ -16,7 +16,9 @@
       <pubDate>Tue, 07 Feb 2017 15:44:03 +0800</pubDate>
       
       <guid>https://ryanshu.github.io/it_capability/markdown_usage/</guid>
-      <description>&lt;p&gt;在网上写内容的同学会经常遇到需要&lt;strong&gt;逐行或者逐字&lt;/strong&gt;地去调整格式的状况，右手不停地在键盘与鼠标之间来回切换，毫无行云流水的畅快之感。&lt;/p&gt;
+      <description>
+
+&lt;p&gt;在网上写内容的同学会经常遇到需要&lt;strong&gt;逐行或者逐字&lt;/strong&gt;地去调整格式的状况，右手不停地在键盘与鼠标之间来回切换，毫无行云流水的畅快之感。&lt;/p&gt;
 
 &lt;p&gt;现在使用&lt;strong&gt;Markdown&lt;/strong&gt;来书写，在敲击键盘的同时键入相关的格式设定并且生成简明的网页，让你的写作思路不停歇，让你的右手只用撸键盘.&lt;/p&gt;
 
@@ -232,8 +234,7 @@
 &lt;h2 id=&#34;后记&#34;&gt;后记&lt;/h2&gt;
 
 &lt;p&gt;Markdown仅使得用户快速输入文字并且快速排版,但如果要发布则需要其他客户端支持&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+</description>
     </item>
     
     <item>
@@ -242,7 +243,9 @@
       <pubDate>Tue, 17 Jan 2017 16:34:17 +0800</pubDate>
       
       <guid>https://ryanshu.github.io/it_capability/how_to_setup_Commcocoa_by_Hugo_Github/</guid>
-      <description>&lt;h2 id=&#34;事先准备&#34;&gt;事先准备&lt;/h2&gt;
+      <description>
+
+&lt;h2 id=&#34;事先准备&#34;&gt;事先准备&lt;/h2&gt;
 
 &lt;h3 id=&#34;安装hugo&#34;&gt;安装Hugo&lt;/h3&gt;
 
@@ -415,8 +418,7 @@
 &lt;li&gt;使用Hugo new page.md 一定要注意编码格式,UTF-8否则容易出现中文字符无法显示.&lt;/li&gt;
 &lt;li&gt;```的使用注意前后段落回车&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+</description>
     </item>
     
   </channel>

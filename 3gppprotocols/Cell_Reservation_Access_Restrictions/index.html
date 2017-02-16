@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en-us">
 <head>
-    <title>使用Hugo/Github搭建Commcocoa网站 &middot; Commcocoa</title>
+    <title>Cell_Reservation_Access_Restrictions &middot; Commcocoa</title>
     <meta name="generator" content="Hugo 0.18.1" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -10,7 +10,7 @@
       <meta name="description" content="">
     
     
-    <link rel="canonical" href="https://ryanshu.github.io/it_capability/how_to_setup_Commcocoa_by_Hugo_Github/"/>
+    <link rel="canonical" href="https://ryanshu.github.io/3gppprotocols/Cell_Reservation_Access_Restrictions/"/>
     <link rel="icon" href="https://ryanshu.github.io/favicon.ico">
     <link rel="apple-touch-icon" href="https://ryanshu.github.io/apple-touch-icon.png"/>
     <link rel="stylesheet" href="https://ryanshu.github.io/css/style.css">
@@ -20,18 +20,17 @@
     
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-    <meta property="og:title" content="使用Hugo/Github搭建Commcocoa网站" />
-<meta property="og:description" content="事先准备 安装Hugo 在Windows上安装Hugo,直接在Github上下载hugo.exe，需注意修改环境变量，安装完成后查询hugo help若反馈如下则表明安装成功.
-	$ hugo help hugo is the main command, used to build your Hugo site. Hugo is a Fast and Flexible Static Site Generator built with love by spf13 and friends in Go. Complete documentation is available at http://gohugo.io/.  安装Git(非必要) 在Windows上安装Git,若产生Git Bash则安装成功.
-安装Notepad&#43;&#43;(非必要) 在Windows上安装Notepad&#43;&#43;,用于编辑网页,VIM将在Linux环境下使用而NPP将在Windows下使用.
-注意： 透过使用*Hugo new XXX.md*生成的markdown文件是ANSI编码，需要转换为UTF-8编码才能正确显示中文字符.
-新建网站 按照Hugo官网Quick Start的instruction下新建网站.
- 前往安装目录,新建Commcocoa:  	$ hugo new site commcocoa Congratulations! Your new Hugo site is created in E:\XX\Commcocoa ." />
+    <meta property="og:title" content="Cell_Reservation_Access_Restrictions" />
+<meta property="og:description" content="Cell Reservation Access Restrictions 标签（空格分隔）： Cell_Reservation SIB3 SIB4
+0.概述 在UTRA cells主要是两种机制来设置Cell reservation或者Access restrications. - 限制当前cell reservation状态来控制cell selection和cell reselection; - 透过显示Access Class来控制和限制不同class的用户来发起不同的服务;
+无论上述哪种机制，都需要透过小区的系统消息3或者系统消息4来广播当前cell reservation状态，如下：
+CellAccessRestriction ::=	SEQUENCE { cellBarred	CellBarred, cellReservedForOperatorUse	ReservedIndicator, cellReservationExtension	ReservedIndicator, -- NOTE: IE accessClassBarredList should not be included if the IE CellAccessRestriction -- is included in the IE SysInfoType4 accessClassBarredList	AccessClassBarredList	OPTIONAL }  如果是第二种机制，还需要从USIM卡中获取当前卡的Access control class(EFacc)信息, 参考TS 22.011 Service accessibility.
+1.Cell Reservation  认识IE:  CellBarred  CellBarred ::= CHOICE { barred SEQUENCE { intraFreqCellReselectionInd AllowedIndicator, t-Barred T-Barred }, notBarred NULL }  cellReservedForOperatorUse cellReservationExtension  ReservedIndicator ::= ENUMERATED { reserved, notReserved }  Tbarred：单位应是miliseconds." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ryanshu.github.io/it_capability/how_to_setup_Commcocoa_by_Hugo_Github/" />
+<meta property="og:url" content="https://ryanshu.github.io/3gppprotocols/Cell_Reservation_Access_Restrictions/" />
 
 
-<meta property="og:updated_time" content="2017-01-17T16:34:17&#43;08:00"/>
+<meta property="og:updated_time" content="2017-02-16T19:24:39&#43;08:00"/>
 
 
 
@@ -44,17 +43,16 @@
 
     
     
-<meta itemprop="name" content="使用Hugo/Github搭建Commcocoa网站">
-<meta itemprop="description" content="事先准备 安装Hugo 在Windows上安装Hugo,直接在Github上下载hugo.exe，需注意修改环境变量，安装完成后查询hugo help若反馈如下则表明安装成功.
-	$ hugo help hugo is the main command, used to build your Hugo site. Hugo is a Fast and Flexible Static Site Generator built with love by spf13 and friends in Go. Complete documentation is available at http://gohugo.io/.  安装Git(非必要) 在Windows上安装Git,若产生Git Bash则安装成功.
-安装Notepad&#43;&#43;(非必要) 在Windows上安装Notepad&#43;&#43;,用于编辑网页,VIM将在Linux环境下使用而NPP将在Windows下使用.
-注意： 透过使用*Hugo new XXX.md*生成的markdown文件是ANSI编码，需要转换为UTF-8编码才能正确显示中文字符.
-新建网站 按照Hugo官网Quick Start的instruction下新建网站.
- 前往安装目录,新建Commcocoa:  	$ hugo new site commcocoa Congratulations! Your new Hugo site is created in E:\XX\Commcocoa .">
+<meta itemprop="name" content="Cell_Reservation_Access_Restrictions">
+<meta itemprop="description" content="Cell Reservation Access Restrictions 标签（空格分隔）： Cell_Reservation SIB3 SIB4
+0.概述 在UTRA cells主要是两种机制来设置Cell reservation或者Access restrications. - 限制当前cell reservation状态来控制cell selection和cell reselection; - 透过显示Access Class来控制和限制不同class的用户来发起不同的服务;
+无论上述哪种机制，都需要透过小区的系统消息3或者系统消息4来广播当前cell reservation状态，如下：
+CellAccessRestriction ::=	SEQUENCE { cellBarred	CellBarred, cellReservedForOperatorUse	ReservedIndicator, cellReservationExtension	ReservedIndicator, -- NOTE: IE accessClassBarredList should not be included if the IE CellAccessRestriction -- is included in the IE SysInfoType4 accessClassBarredList	AccessClassBarredList	OPTIONAL }  如果是第二种机制，还需要从USIM卡中获取当前卡的Access control class(EFacc)信息, 参考TS 22.011 Service accessibility.
+1.Cell Reservation  认识IE:  CellBarred  CellBarred ::= CHOICE { barred SEQUENCE { intraFreqCellReselectionInd AllowedIndicator, t-Barred T-Barred }, notBarred NULL }  cellReservedForOperatorUse cellReservationExtension  ReservedIndicator ::= ENUMERATED { reserved, notReserved }  Tbarred：单位应是miliseconds.">
 
 
-<meta itemprop="dateModified" content="2017-01-17T16:34:17&#43;08:00" />
-<meta itemprop="wordCount" content="414">
+<meta itemprop="dateModified" content="2017-02-16T19:24:39&#43;08:00" />
+<meta itemprop="wordCount" content="311">
 
 
 
@@ -66,13 +64,12 @@
 
 
 
-<meta name="twitter:title" content="使用Hugo/Github搭建Commcocoa网站"/>
-<meta name="twitter:description" content="事先准备 安装Hugo 在Windows上安装Hugo,直接在Github上下载hugo.exe，需注意修改环境变量，安装完成后查询hugo help若反馈如下则表明安装成功.
-	$ hugo help hugo is the main command, used to build your Hugo site. Hugo is a Fast and Flexible Static Site Generator built with love by spf13 and friends in Go. Complete documentation is available at http://gohugo.io/.  安装Git(非必要) 在Windows上安装Git,若产生Git Bash则安装成功.
-安装Notepad&#43;&#43;(非必要) 在Windows上安装Notepad&#43;&#43;,用于编辑网页,VIM将在Linux环境下使用而NPP将在Windows下使用.
-注意： 透过使用*Hugo new XXX.md*生成的markdown文件是ANSI编码，需要转换为UTF-8编码才能正确显示中文字符.
-新建网站 按照Hugo官网Quick Start的instruction下新建网站.
- 前往安装目录,新建Commcocoa:  	$ hugo new site commcocoa Congratulations! Your new Hugo site is created in E:\XX\Commcocoa ."/>
+<meta name="twitter:title" content="Cell_Reservation_Access_Restrictions"/>
+<meta name="twitter:description" content="Cell Reservation Access Restrictions 标签（空格分隔）： Cell_Reservation SIB3 SIB4
+0.概述 在UTRA cells主要是两种机制来设置Cell reservation或者Access restrications. - 限制当前cell reservation状态来控制cell selection和cell reselection; - 透过显示Access Class来控制和限制不同class的用户来发起不同的服务;
+无论上述哪种机制，都需要透过小区的系统消息3或者系统消息4来广播当前cell reservation状态，如下：
+CellAccessRestriction ::=	SEQUENCE { cellBarred	CellBarred, cellReservedForOperatorUse	ReservedIndicator, cellReservationExtension	ReservedIndicator, -- NOTE: IE accessClassBarredList should not be included if the IE CellAccessRestriction -- is included in the IE SysInfoType4 accessClassBarredList	AccessClassBarredList	OPTIONAL }  如果是第二种机制，还需要从USIM卡中获取当前卡的Access control class(EFacc)信息, 参考TS 22.011 Service accessibility.
+1.Cell Reservation  认识IE:  CellBarred  CellBarred ::= CHOICE { barred SEQUENCE { intraFreqCellReselectionInd AllowedIndicator, t-Barred T-Barred }, notBarred NULL }  cellReservedForOperatorUse cellReservationExtension  ReservedIndicator ::= ENUMERATED { reserved, notReserved }  Tbarred：单位应是miliseconds."/>
 
 
 
@@ -213,6 +210,98 @@
    	
    	<div class="outer">
    		
+	    <aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      <img id="avatar" src="https://ryanshu.github.io/css/images/avatar.png">
+      <h2 id="name">Ryan Shu</h2>
+      <h3 id="title">Ranger in Communication Technologies, Encoding and Decoding life</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>China</span>
+      
+          <a id="follow" href="https://github.com/RyanShu">
+              Follow
+          </a>
+      
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        3
+        <span>篇文章</span>
+      </div>
+      <div class="article-info-block">
+        
+          2
+        
+        <span>
+            标签
+        </span>
+      </div>
+    </div>
+    <div class="profile-block social-links">
+      <table>
+        <tr>
+          
+<td><a href="//github.com/RyanShu" target="_blank" title="GitHub"><i class="fa fa-github"></i></a></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <td><a href="https://ryanshu.github.io/index.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</aside>
+
+	    
 
 	    
 <section id="main">
@@ -222,17 +311,17 @@
             
 
             <header class="article-header">
-    <a href="https://ryanshu.github.io/it_capability/how_to_setup_Commcocoa_by_Hugo_Github/">
+    <a href="https://ryanshu.github.io/3gppprotocols/Cell_Reservation_Access_Restrictions/">
     <h1 class="article-title" itemprop="name">
-        使用Hugo/Github搭建Commcocoa网站
+        Cell_Reservation_Access_Restrictions
     </h1>
     </a>
     <div class="article-meta">
         <div class="article-date">
             <i class="fa fa-calendar"></i>
-            <time datetime="2017-01-17 16:34:17 &#43;0800 CST" itemprop="datePublished">2017-01-17</time>
+            <time datetime="2017-02-16 19:24:39 &#43;0800 CST" itemprop="datePublished">2017-02-16</time>
             &middot;
-            414
+            311
             字
             &middot;
             2
@@ -242,15 +331,6 @@
 
         
             
-            
-            <div class="article-category">
-                <i class="fa fa-folder"></i>
-                
-                
-                <a class="article-category-link" href="https://ryanshu.github.io/categories/website">Website</a>
-                
-                
-            </div>
             
         
 
@@ -264,183 +344,102 @@
             <div class="article-entry" itemprop="articleBody">
                 
 
-<h2 id="事先准备">事先准备</h2>
+<h1 id="cell-reservation-access-restrictions">Cell Reservation Access Restrictions</h1>
 
-<h3 id="安装hugo">安装Hugo</h3>
+<p>标签（空格分隔）： Cell_Reservation SIB3 SIB4</p>
 
-<p><a href="http://www.gohugo.io/tutorials/installing-on-windows/">在Windows上安装Hugo</a>,直接在Github上下载hugo.exe，需注意修改<strong>环境变量</strong>，安装完成后查询hugo help若反馈如下则表明安装成功.</p>
+<hr />
 
-<pre><code>	$ hugo help
-	hugo is the main command, used to build your Hugo site.
+<h1 id="0-概述">0.概述</h1>
 
-	Hugo is a Fast and Flexible Static Site Generator
-	built with love by spf13 and friends in Go.
+<p>在UTRA cells主要是两种机制来设置Cell reservation或者Access restrications.
+- 限制当前cell reservation状态来控制cell selection和cell reselection;
+- 透过显示Access Class来控制和限制不同class的用户来发起不同的服务;</p>
 
-	Complete documentation is available at http://gohugo.io/.
+<p>无论上述哪种机制，都需要透过小区的系统消息3或者系统消息4来广播当前cell reservation状态，如下：</p>
+
+<pre><code>CellAccessRestriction ::=			SEQUENCE {
+	cellBarred							CellBarred,
+	cellReservedForOperatorUse			ReservedIndicator,
+	cellReservationExtension			ReservedIndicator,
+	-- NOTE: IE accessClassBarredList should not be included if the IE CellAccessRestriction
+	-- is included in the IE SysInfoType4
+	accessClassBarredList				AccessClassBarredList				OPTIONAL
+}
 </code></pre>
 
-<h3 id="安装git-非必要">安装Git(非必要)</h3>
+<p>如果是第二种机制，还需要从USIM卡中获取当前卡的Access control class(EFacc)信息, 参考TS 22.011 Service accessibility.</p>
 
-<p><a href="https://git-for-windows.github.io/">在Windows上安装Git</a>,若产生Git Bash则安装成功.</p>
-
-<h3 id="安装notepad-非必要">安装Notepad++(非必要)</h3>
-
-<p><a href="https://notepad-plus-plus.org/">在Windows上安装Notepad++</a>,用于编辑网页,VIM将在Linux环境下使用而NPP将在Windows下使用.</p>
-
-<p><strong>注意：</strong>
-透过使用*Hugo new XXX.md*生成的markdown文件是<strong>ANSI</strong>编码，需要转换为<strong>UTF-8</strong>编码才能正确显示中文字符.</p>
-
-<h2 id="新建网站">新建网站</h2>
-
-<p>按照Hugo官网<a href="http://www.gohugo.io/overview/quickstart/">Quick Start</a>的instruction下新建网站.</p>
+<h1 id="1-cell-reservation">1.Cell Reservation</h1>
 
 <ul>
-<li>前往安装目录,新建Commcocoa:</li>
-</ul>
-
-<pre><code>	$ hugo new site commcocoa
-	Congratulations! Your new Hugo site is created in E:\XX\Commcocoa                .
-
-	Just a few more steps and you're ready to go:
-
-	1. Download a theme into the same-named folder.
-	   Choose a theme from https://themes.gohugo.io/, or
-	   create your own with the &quot;hugo new theme &lt;THEMENAME&gt;&quot; command.
-	2. Perhaps you want to add some content. You can add single files
-	   with &quot;hugo new &lt;SECTIONNAME&gt;\&lt;FILENAME&gt;.&lt;FORMAT&gt;&quot;.
-	3. Start the built-in live server via &quot;hugo server&quot;.
-
-	Visit https://gohugo.io/ for quickstart guide and full documentation.
-</code></pre>
+<li>认识IE:
 
 <ul>
-<li>查询Commcocoa下自动生成的文件内容：</li>
-</ul>
-
-<pre><code>	$ ls -al
-	total 5
-	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 ./
-	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 ../
-	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 archetypes/
-	-rw-r--r-- 1 Ryan Shu 197121 82 Jan 17 14:42 config.toml
-	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 content/
-	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 data/
-	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 layouts/
-	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 static/
-	drwxr-xr-x 1 Ryan Shu 197121  0 Jan 17 14:42 themes/
-</code></pre>
-
-<ul>
-<li>下载主题，使用事先选定的主题<a href="http://themes.gohugo.io/hugo-icarus/">Icarus</a>
-如果没有主题则会出现build error. 下载方式可使用Git,如下：</li>
-</ul>
-
-<pre><code>	$ cd themes
-	git clone https://github.com/digitalcraftsman/hugo-icarus-theme
-</code></pre>
-
-<ul>
-<li>下载的主题会在theme文件夹下,则将其examplesSite内容拷贝并覆盖到Commcocoa目录下</li>
-</ul>
-
-<p><code>$ cp -av ~/commcocoa/themes/hugo-icarus-theme/exampleSite/* ~/commcocoa/</code></p>
-
-<ul>
-<li>使用Hugo build,需返回到commcocoa目录下</li>
-</ul>
-
-<pre><code>	$ hugo server -t hugo-icarus-theme -D
-</code></pre>
-
-<p>如果有其他主题，使用下面命令来切换不同的主题,比如切换到robust主题</p>
-
-<pre><code>	$ hugo server --theme=hugo_theme_robust --buildDrafts
-</code></pre>
-
-<ul>
-<li>build pass后会产生如下打印消息：</li>
-</ul>
-
-<pre><code>	$ hugo server -t hugo-icarus-theme -D
-	Started building sites ...
-	Built site for language en:
-	0 draft content
-	0 future content
-	0 expired content
-	6 regular pages created
-	4 other pages created
-	0 non-page files copied
-	3 paginator pages created
-	0 tags created
-	1 categories created
-	total in 65 ms
-	Watching for changes in E:\Ryan_Shu\Commcocoa\commcocoa\{data,content,layouts,static,themes}
-	Serving pages from memory
-	Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
-	Press Ctrl+C to stop
-</code></pre>
-
-<ul>
-<li>使用浏览器访问<a href="http://localhost:1313/">localhost:1313</a>即可显示网站.</li>
-</ul>
-
-<h2 id="配置开关">配置开关</h2>
-
-<ul>
-<li>使用Tags来增加标签</li>
-</ul>
-
-<pre><code>	tags = []
-</code></pre>
-
-<ul>
-<li>使用categories来增减目录</li>
-</ul>
-
-<pre><code>	categories = []
-</code></pre>
-
-<ul>
-<li>widgits</li>
-</ul>
-
-<pre><code>	recent_articles = false
-    categories = true
-    tags = true
-    tag_cloud = true
-</code></pre>
-
-<h2 id="部署">部署</h2>
-
-<ul>
-<li>使用<code>Hugo</code>命令生成public:
+<li>CellBarred
 <code>
-	Started building sites ...
-	Built site for language en:
-	0 draft content
-	0 future content
-	0 expired content
-	6 regular pages created
-	4 other pages created
-	0 non-page files copied
-	3 paginator pages created
-	0 tags created
-	1 categories created
-	total in 78 ms
+CellBarred ::=                      CHOICE {
+barred                              SEQUENCE {
+    intraFreqCellReselectionInd         AllowedIndicator,
+    t-Barred                            T-Barred
+},
+notBarred                           NULL
+}
 </code></li>
+<li>cellReservedForOperatorUse</li>
+<li>cellReservationExtension
+<code>
+ReservedIndicator ::=               ENUMERATED {
+                                reserved,
+                                notReserved }
+</code></li>
+<li>Tbarred：单位应是miliseconds.
+<code>
+T-Barred ::=                        ENUMERATED {
+                                s10, s20, s40, s80,
+                                s160, s320, s640, s1280 }
+</code></li>
+</ul></li>
+<li>Overview:</li>
 </ul>
 
-<h2 id="tips">Tips</h2>
+<p>cellBarred|cellReservedForOperatorUse|cellReservationExtension|Action for Cell Selection or Cell Reselection|Tbarred
+-|-|-|-|-|
+Not Barred|Not Reserved|Not Reserved|No restriction|NA
+Not Barred|Not Reserverd|Reserved|1.若cellReservedForCSG 指示为ture，则认为该cell是 not reserved；2.其他状况，则认为该栏位是reserverd，所以该cell为barred,cell selection and reselection restrict except for ECC call|Tbarred
+Not Barred|Reserverd|NA|1.在HPLMNorEHPLMN的小区上，Access Class 11-15的UE仍可以正常Cell selection and Cell reselection;2.其他状况下认为该cell是barred，cell selection and reselection restrict except for ECC call|Tbarred
+Barred|NA|NA|1.不可以做cell selection and reselection,也不可以做ECC call;2.ignore cellReservationExtension;3. intraFreqCellReselectionInd为allowed,则可以cell selection/reselection到intraFreqCell上.如果选到其他Cell上了，那么等待Tbarred expiry要将barred cell从barred cell list中剔除。如果并没有选到其他Cell上，而是在原来Cell上那么等待Tbarred expiry后需要check当前cell barred状态是否更正。4.如果intraFreqCellReselectionInd为not allowed，那么无法进行同频小区的cell selection/reselection.在原来Cell上那么等待Tbarred expiry后需要check当前cell barred状态是否更正.
+补充：关于ECC call在Cell barred的时候是无法拨打的，但如果当前Cell barred是因为restrictions due to cell reservations,也就是cellReservedForOperatorUse和cellReservationExtension认为是Cell barred，那么是可以拨打ECC call.</p>
+
+<h1 id="2-access-controls-class">2.Access Controls Class</h1>
+
+<p>Access Controls Class并不影响该Cell是否可以camp on而影响在该Cell上是否可执行某些业务，比如LU，RAU，比如ECC call等等.
+- Basic Version:
+- Access control class allocation:
+&gt; 所有的UE(从卡中获取)都要随机分配Access Class 0-9,另外，还可以分配1个如下特殊class:
+    Class   15  -   PLMN Staff;
+      -&ldquo;-   14  -   Emergency Services;
+      -&ldquo;-   13  -   Public Utilities (e.g. water/gas suppliers);
+      -&ldquo;-   12  -   Security Services;
+      -&ldquo;-   11  -   For PLMN Use.</p>
 
 <ul>
-<li>目前标题中不能够出现“+”,否则无法索引到，怀疑需要转义.</li>
-<li>使用Hugo new page.md 一定要注意编码格式,UTF-8否则容易出现中文字符无法显示.</li>
-<li>```的使用注意前后段落回车</li>
+<li><p>Operation:
+&gt; 系统消息3和系统消息4中会广播access class,如果卡中相对应的class被置为1，那么说明该class是被允许接入的，如下是class的受用范围：
+Class|field
+-|-
+Classes 0 - 9|Home and Visited PLMNs;
+Classes 11 and 15|Home PLMN only if the EHPLMN list is not presentor any EHPLMN;
+Classes 12, 13, 14|Home PLMN and visited PLMNs of home country only. For this purpose the home country is defined as the country of the MCC part of the IMSI.
+Any number of these classes may be barred at any one time.</p></li>
+
+<li><p>Emergency Call:
+&gt; Acess Class 10指示是否可以拨打ECC call, 当该栏位指为1表明，class是0-9的UE以及没有SIM卡的有UE都可以拨打ECC call。然而, 如果是Class 11-15的UE，当Class 11-15被禁同时Access Class10被禁时才会被限制拨打ECC call.其他状况下，均可以拨打ECC call.</p></li>
 </ul>
 
             </div>
             <footer class="article-footer">
-    <a data-url="https://ryanshu.github.io/it_capability/how_to_setup_Commcocoa_by_Hugo_Github/" data-id="76cd77fa0c7699d65e9b27b38b295c37" class="article-share-link">
+    <a data-url="https://ryanshu.github.io/3gppprotocols/Cell_Reservation_Access_Restrictions/" data-id="99fff1e34d7dc5651519044b43aab77a" class="article-share-link">
         <i class="fa fa-share"></i>
         分享到
     </a>
@@ -515,19 +514,6 @@
         </div>
 
         
-<nav id="article-nav">
-    
-
-    
-    <a href="https://ryanshu.github.io/it_capability/markdown_usage/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">
-          下一篇
-      </strong>
-      <div class="article-nav-title">Markdown实践</div>
-    </a>
-    
-</nav>
-
 
     </article>
 
